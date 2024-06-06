@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Import Font Awesome for social icons -->
+    <link rel="stylesheet" href="css/in.css">
+
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="container">
+        <h2 class="name name-animate">Do Nhut Tan</h2>
+<br>
+<br>
+<br>
+
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <p> <br><br> Hi there! I'm a new developer. I'm passionate about web development and have learned various skills including HTML, CSS, C#, and more.</p>
+
+        <button >
+            <a href="https://www.facebook.com/dnttan.xyz">
+               <svg viewBox="0 0 16 16" fill="currentColor" id="facebook">
+                     <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+               </svg>
+            </a>
+        </button>
+              
+         
+        </div>
+    </div>
+
+    <script>
+        // Particle Animation
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2 + 1,
+                color: '#ffffff',
+                speedX: Math.random() * 2 - 1,
+                speedY: Math.random() * 2 - 1
+            };
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                if (p.x < 0 || p.x > canvas.width) {
+                    p.speedX *= -1;
+                }
+
+                if (p.y < 0 || p.y > canvas.height) {
+                    p.speedY *= -1;
+                }
+
+                // Draw connections
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p2.x - p.x;
+                    const dy = p2.y - p.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        const alpha = 1 - distance / 100;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.bezierCurveTo(p.x + dx / 2, p.y + dy / 2, p2.x - dx / 2, p2.y - dy / 2, p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        function addParticles(count) {
+            for (let i = 0; i < count; i++) {
+                particles.push(createParticle());
+            }
+        }
+        window.addEventListener('DOMContentLoaded', function() {
+    const nameElement = document.querySelector('.name-animate');
+    setTimeout(function() {
+        nameElement.classList.add('active');
+    }, 1000); // Delay 1s before adding the active class
+});
+
+
+        addParticles(100); // Add 100 particles initially
+        draw();
+    </script>
+</body>
+</html>
+
