@@ -6,29 +6,28 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
 
+// FPS Calculation
+function calculateFPS() {
+    let lastFrameTime = performance.now();
+    let frameCounter = 0;
 
-        //fps 
-         function calculateFPS() {
-             let lastFrameTime = performance.now();
-             let frameCounter = 0;
- 
-             function update() {
-                 const currentTime = performance.now();
-                 const deltaTime = currentTime - lastFrameTime;
-                 lastFrameTime = currentTime;
-                 const fps = Math.round(1000 / deltaTime);
-                 document.getElementById('fps').innerText = `FPS: ${fps}`;
-                 requestAnimationFrame(update);
-             }
- 
-             update();
-         }
- 
-       
-         window.addEventListener('load', calculateFPS);
+    function update() {
+        const currentTime = performance.now();
+        const deltaTime = currentTime - lastFrameTime;
+        lastFrameTime = currentTime;
+        const fps = Math.round(1000 / deltaTime);
+        document.getElementById('fps').innerText = `FPS: ${fps}`;
+        requestAnimationFrame(update);
+    }
 
+    update();
+}
 
-         window.addEventListener('load', function() {
-            document.getElementById('spinner').classList.add('hidden');
-            document.getElementById('content').classList.remove('hidden');
-        });
+document.addEventListener("DOMContentLoaded", function() {
+    var notification = document.querySelector('.notification');
+    setTimeout(function() {
+        notification.style.display = 'none';
+    }, 5000); // 5 seconds
+});
+
+window.addEventListener('load', calculateFPS);
