@@ -33,20 +33,23 @@
             margin-bottom: 1rem;
             color: #ffffff;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            background: linear-gradient(to right, #ffffff, #b3b3b3, #ffffff);
+            background-size: 200% auto;
+            animation: shimmer 2s linear infinite;
+            -webkit-background-clip : text;
+            -webkit-text-fill-color: transparent;
         }
 
         .image-row {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: center;
             margin-top: 2rem;
         }
 
         .image-container {
             margin: 1rem;
             text-align: center;
-            flex: 1 1 calc(25% - 2rem);
-            max-width: calc(25% - 2rem);
+            max-width: 100%;
         }
 
         .image-container a {
@@ -70,6 +73,7 @@
             font-size: 1rem;
             margin-top: 2rem;
             color: #b0b0b0;
+            animation: fadeIn 3s ease-in;
         }
 
         @keyframes shimmer {
@@ -81,18 +85,6 @@
             }
         }
 
-        header h1 {
-            background: linear-gradient(to right, #ffffff, #b3b3b3, #ffffff);
-            background-size: 200% auto;
-            animation: shimmer 2s linear infinite;
-            -webkit-background-clip : text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        footer p {
-            animation: fadeIn 3s ease-in;
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -102,27 +94,6 @@
             }
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .image-container {
-                flex: 1 1 calc(33% - 2rem);
-                max-width: calc(33% - 2rem);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .image-container {
-                flex: 1 1 calc(50% - 2rem);
-                max-width: calc(50% - 2rem);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .image-container {
-                flex: 1 1 calc(100% - 2rem);
-                max-width: calc(100% - 2rem);
-            }
-        }
         .popup {
             display: none;
             position: fixed;
@@ -137,47 +108,36 @@
         }
 
         .popup-content {
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 700px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    border: 4px solid #333; /* Custom border thickness */
-}
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            border: 4px solid #333;
+        }
 
-.popup-content h1 {
-    color: #333;
-}
+        .popup-content h1 {
+            color: #333;
+        }
 
-.popup-content {
-    margin: 15% auto;
-    padding: 20px;
-    width: 60%; /* Adjust the width */
-    max-width: 400px; /* Adjust the maximum width */
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    border: 4px solid #333;
-}
+        .popup-content p {
+            color: #555;
+        }
 
-.popup-content p {
-    color: #555; /* Adjusted color for paragraph text */
-}
+        .close {
+            color: #000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-.close {
-    color: #000;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #aaa;
-    text-decoration: none;
-}
-
+        .close:hover,
+        .close:focus {
+            color: #aaa;
+            text-decoration: none;
+        }
 
         @keyframes fadeIn {
             from {
@@ -189,15 +149,6 @@
         }
     </style>
 </head>
-<script>
-    function openPopup(id) {
-        document.getElementById(id).style.display = "block";
-    }
-
-    function closePopup(id) {
-        document.getElementById(id).style.display = "none";
-    }
-</script>
 <body>
     <div class="container">
         <header>
@@ -206,210 +157,15 @@
         <main>
             <div class="image-row">
                 <div class="image-container">
-                    <a href="#" onclick="openPopup('popup1')">
-                        <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
+                    <a href="https://www.mediafire.com/file/qd2xxmyu5glsbsw/z.rar/file" target="_blank">
+                        <img src="logo.png" alt="Moonlight Image 1">
                     </a>
                 </div>
-                <div class="image-container">
-                    <a href="#" onclick="openPopup('popup2')">
-                        <img src="https://via.placeholder.com/150" alt="Moonlight Image 2">
-                    </a>
-                </div>
-                <div class="image-container">
-                    <a href="#" onclick="openPopup('popup3')">
-                        <img src="https://via.placeholder.com/150" alt="Moonlight Image 3">
-                    </a>
-                </div>
-                <div class="image-container">
-                    <a href="#" onclick="openPopup('popup4')">
-                        <img src="https://via.placeholder.com/150" alt="Moonlight Image 4">
-                    </a>
-                </div>
-                <div class="image-container">
-                    <a href="#" onclick="openPopup('popup5')">
-                        <img src="https://via.placeholder.com/150" alt="Moonlight Image 5">
-                    </a>
-                </div>
-                <div class="image-container">
-                    <a href="#" onclick="openPopup('popup6')">
-                        <img src="https://via.placeholder.com/150" alt="Moonlight Image 6">
-                    </a>
-                </div>
-                <div class="image-container">
-                    <a href="#" onclick="openPopup('popup7')">
-                        <img src="https://via.placeholder.com/150" alt="Moonlight Image 7">
-                    </a>
-                </div>
-                <div class="image-container">
-                    <a href="#" onclick="openPopup('popup8')">
-                        <img src="https://via.placeholder.com/150" alt="MoonlightImage 8">
-                    </a>
-                    </div>
-                    </main>
-                    
-                    <div id="popup1" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup1')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="popup2" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup2')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="popup3" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup3')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="popup4" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup4')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="popup5" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup5')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="popup6" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup6')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="popup7" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup7')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="popup8" class="popup">
-                        <div class="popup-content">
-                            <span class="close" onclick="closePopup('popup1')">×</span>
-                            <div style="overflow: hidden;">
-                                <div style="float: right; text-align: left; max-width: 50%;">
-                                    <h1>Title Here</h1>
-                                    <p>Description Here</p>
-                                </div>
-                                <div style="float: left; text-align: center; max-width: 50%;">
-                                    <img src="https://via.placeholder.com/150" alt="Moonlight Image 1">
-                                </div>
-                            </div>
-                            <div style="clear: both; text-align: center;">
-                                <a href="path_to_your_image.jpg" download>
-                                    <button>Download</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <footer>
-                    <p>© 2024 Moonlight Designs</p>
-                    </footer>
-                    </div>
-                    
-                    </body>
-                    </html>
+            </div>
+        </main>
+        <footer>
+            <p>© 2024 Moonlight Designs</p>
+        </footer>
+    </div>
+</body>
+</html>
